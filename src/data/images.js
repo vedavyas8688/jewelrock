@@ -14,6 +14,11 @@ import spices from '../assets/images/menu-hero-spices.webp';
 import plates from '../assets/images/masterpiece-plates.webp';
 import guestWoman from '../assets/images/testimonial-woman.webp';
 import guestMan from '../assets/images/testimonial-man.webp';
+import cateringBuffetHero from '../assets/images/catering-buffet-hero.png';
+import cateringLiveTheatreBg from '../assets/images/catering-live-theatre-bg.png';
+import cateringMainCourse from '../assets/images/catering-main-course.png';
+import cateringRegionalSpecialty from '../assets/images/catering-regional-specialty.png';
+import cateringBeverages from '../assets/images/catering-beverages.png';
 
 export const images = {
   hero,
@@ -32,6 +37,11 @@ export const images = {
   plates,
   guestWoman,
   guestMan,
+  cateringBuffetHero,
+  cateringLiveTheatreBg,
+  cateringMainCourse,
+  cateringRegionalSpecialty,
+  cateringBeverages,
 };
 
 const galleryFiles = import.meta.glob('../assets/gallery/gallery-*.webp', {

@@ -25,6 +25,7 @@ export const site = {
     { label: 'Home', slug: 'home', href: '/' },
     { label: 'About', slug: 'about', href: '/about' },
     { label: 'Menu', slug: 'menu', href: '/menu' },
+    { label: 'Catering', slug: 'catering', href: '/catering' },
     { label: 'Gallery', slug: 'gallery', href: '/gallery' },
     { label: 'Reservations', slug: 'reservations', href: '/reservations' },
     { label: 'Journal', slug: 'blogs', href: '/blogs' },

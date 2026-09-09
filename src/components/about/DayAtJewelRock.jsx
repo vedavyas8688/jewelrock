@@ -8,7 +8,7 @@ import { cx } from '../../lib/cx';
 
 const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 const travelEnd = 0.86;
-const edgeGap = 20;
+const edgeGap = 0;
 
 export function DayAtJewelRock() {
   const { day } = about;
@@ -117,9 +117,9 @@ export function DayAtJewelRock() {
                     <Picture
                       src={images[item.image]}
                       alt=""
-                      ratio="aspect-[16/10]"
+                      ratio=""
                       radius="rounded-none"
-                      className="h-full"
+                      className="h-full w-full"
                       imgClassName="day-card-image"
                     />
                   </div>

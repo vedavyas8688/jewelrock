@@ -5,6 +5,7 @@ import { Footer } from './components/layout/Footer';
 import { HomePage } from './pages/HomePage';
 import { AboutPage } from './pages/AboutPage';
 import { MenuPage } from './pages/MenuPage';
+import { CateringPage } from './pages/CateringPage';
 import { GalleryPage } from './pages/GalleryPage';
 import { ReservationsPage } from './pages/ReservationsPage';
 import { BlogsPage } from './pages/BlogsPage';
@@ -18,6 +19,7 @@ const pages = {
   home: HomePage,
   about: AboutPage,
   menu: MenuPage,
+  catering: CateringPage,
   gallery: GalleryPage,
   reservations: ReservationsPage,
   blogs: BlogsPage,
@@ -30,6 +32,7 @@ const titles = {
   home: 'Multi-cuisine dining & bar in Mysuru',
   about: 'Our story',
   menu: 'Menu',
+  catering: 'Catering',
   gallery: 'Gallery',
   reservations: 'Reservations',
   blogs: 'Journal',

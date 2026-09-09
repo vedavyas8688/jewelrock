@@ -8,9 +8,9 @@ import './philosophy.css';
 const pointIcons = [Leaf, Soup, Users];
 
 const ingredientNotes = [
-  { label: ['Fresh', 'ingredients'], image: 'spices', className: 'left-[52%] top-[0%]' },
-  { label: ['Local', 'produce'], image: 'farm', className: 'left-[67%] top-[25%]' },
-  { label: ['Bold', 'flavours'], image: 'spices', className: 'left-[57%] top-[56%]' },
+  { image: 'spices', className: 'left-[52%] top-[0%]' },
+  { image: 'farm', className: 'left-[67%] top-[25%]' },
+  { image: 'spices', className: 'left-[57%] top-[56%]' },
 ];
 
 export function Philosophy() {
@@ -91,17 +91,13 @@ export function Philosophy() {
 
             {ingredientNotes.map((note, index) => (
               <div
-                key={note.label.join(' ')}
-                className={`ph-note absolute flex w-[46%] items-center gap-4 ${note.className}`}
+                key={`${note.image}-${index}`}
+                className={`ph-note absolute flex w-[25%] items-center ${note.className}`}
                 data-reveal="right"
                 data-reveal-delay={300 + index * 120}
               >
-                <span className="ph-medallion aspect-square w-[52%] shrink-0 overflow-hidden rounded-full border-[7px] border-paper bg-paper">
+                <span className="ph-medallion aspect-square w-full shrink-0 overflow-hidden rounded-full border-[7px] border-paper bg-paper">
                   <img src={images[note.image]} alt="" className="h-full w-full object-cover" loading="lazy" decoding="async" />
-                </span>
-                <span className="ph-label min-w-[8.5rem] text-[0.66rem] font-bold uppercase leading-[1.8] tracking-[0.2em] text-forest">
-                  {note.label[0]}
-                  <span className="block">{note.label[1]}</span>
                 </span>
               </div>
             ))}
