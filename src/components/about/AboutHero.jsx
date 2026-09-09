@@ -10,7 +10,7 @@ export function HeroSection({ config, id = 'home' }) {
   return (
     <section id={id} className="relative overflow-hidden bg-[var(--color-background)] lg:h-[calc(100vh-84px)] lg:min-h-[720px]">
       <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-px bg-line" aria-hidden="true" />
-      <div className="relative grid min-h-[calc(100vh-84px)] w-full min-w-0 gap-10 px-5 pb-14 pt-20 sm:px-8 lg:h-full lg:min-h-0 lg:grid-cols-[46vw_minmax(540px,1fr)_150px] lg:gap-0 lg:px-0 lg:py-0">
+      <div className="relative grid w-full min-w-0 gap-10 px-5 pb-14 pt-12 sm:px-8 sm:pt-16 lg:h-full lg:min-h-0 lg:grid-cols-[46vw_minmax(540px,1fr)_150px] lg:gap-0 lg:px-0 lg:py-0">
         <div className="hero-copy-column flex min-w-0 flex-col justify-between lg:h-full lg:min-h-0 lg:pb-[5.8vh] lg:pl-[max(var(--spacing-gutter),calc((100vw-var(--container-site))/2))] lg:pr-12 lg:pt-[14.5vh]">
           <div
             data-reveal="left"
@@ -23,7 +23,7 @@ export function HeroSection({ config, id = 'home' }) {
             </div>
             <h1
               aria-label={hero.title}
-              className="max-w-full font-body text-[44px] font-bold leading-[1.06] text-[var(--color-primary)] sm:text-[58px] lg:text-[64px] 2xl:text-[70px]"
+              className="max-w-full font-body text-[clamp(2.45rem,11vw,3.65rem)] font-bold leading-[1.06] text-[var(--color-primary)] lg:text-[64px] 2xl:text-[70px]"
             >
               {hero.titleLines.map((line) => (
                 <span key={line} className="block lg:whitespace-nowrap" aria-hidden="true">
@@ -31,7 +31,7 @@ export function HeroSection({ config, id = 'home' }) {
                 </span>
               ))}
             </h1>
-            <p className="mobile-copy-lock mt-8 w-full max-w-[650px] text-base leading-8 text-[var(--color-ink)] sm:text-[20px] sm:leading-9">
+            <p className="mobile-copy-lock mt-6 w-full max-w-[650px] text-base leading-7 text-[var(--color-ink)] sm:mt-8 sm:text-[20px] sm:leading-9">
               {hero.description}
             </p>
             <a href="/reservations" className="primary-button mt-10 min-h-[44px] px-6 text-sm sm:px-6">
@@ -71,7 +71,7 @@ export function HeroSection({ config, id = 'home' }) {
           <img
             src={images.hero}
             alt="Vegetarian plate in the JewelRock dining room"
-            className="hero-media image-zoom relative z-10 h-[440px] w-full object-cover [border-top-left-radius:150px] sm:h-[560px] lg:h-[calc(100vh-84px)] lg:min-h-0 lg:[border-top-left-radius:300px]"
+            className="hero-media image-zoom relative z-10 h-[340px] w-full object-cover [border-top-left-radius:96px] sm:h-[500px] sm:[border-top-left-radius:150px] lg:h-[calc(100vh-84px)] lg:min-h-0 lg:[border-top-left-radius:300px]"
           />
         </div>
 

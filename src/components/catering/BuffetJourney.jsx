@@ -4,12 +4,12 @@ const buffetJourney = [
   {
     title: 'Buffet Setup',
     text: 'Warm counters, clean service flow.',
-    image: images.plates,
+    image: images.cateringBuffetHero,
   },
   {
     title: 'Menu Spread',
     text: 'Kababs, gravies, rice and breads.',
-    image: images.platter,
+    image: images.plates,
   },
   {
     title: 'Live Counter',
@@ -19,7 +19,7 @@ const buffetJourney = [
   {
     title: 'Main Feast',
     text: 'A generous spread for every table.',
-    image: images.hero,
+    image: images.cateringRegionalSpecialty,
   },
   {
     title: 'Sweet Finale',
@@ -30,7 +30,7 @@ const buffetJourney = [
 
 export function BuffetJourney() {
   return (
-    <section className="bg-cream py-16 text-forest sm:py-20 lg:py-24">
+    <section className="bg-cream py-14 text-forest sm:py-18 lg:py-20">
       <div className="mx-auto w-[90%] max-w-[1500px]">
         <div className="mx-auto max-w-4xl text-center">
           <p className="text-eyebrow font-bold uppercase tracking-[0.28em] text-gold">
@@ -44,10 +44,10 @@ export function BuffetJourney() {
           </p>
         </div>
 
-        <ol className="mt-12 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-5 lg:gap-x-10">
+        <ol className="mt-10 grid gap-x-8 gap-y-12 sm:mt-12 sm:grid-cols-2 lg:grid-cols-5 lg:gap-x-10">
           {buffetJourney.map((item, index) => (
             <li key={item.title} className="buffet-step relative text-center">
-              <div className="relative mx-auto aspect-square w-[min(72vw,13.5rem)] rounded-full border border-gold/70 p-1.5 shadow-soft sm:w-[13.5rem] lg:w-[min(100%,13rem)] xl:w-[14rem]">
+              <div className="relative mx-auto aspect-square w-[min(68vw,13rem)] rounded-full border border-gold/70 p-1.5 shadow-soft sm:w-[13.5rem] lg:w-[min(100%,12.5rem)] xl:w-[13.5rem]">
                 <div className="h-full w-full overflow-hidden rounded-full border-[6px] border-paper bg-cream-deep">
                   <img
                     src={item.image}

@@ -10,7 +10,7 @@ export function Team() {
   return (
     <Section>
       <SectionHeading title={team.title} text={team.text} align="center" size="md" />
-      <ul className="mt-12 grid grid-cols-2 gap-5 lg:grid-cols-4">
+      <ul className="mt-10 grid grid-cols-1 gap-6 min-[460px]:grid-cols-2 lg:mt-12 lg:grid-cols-4 lg:gap-5">
         {team.members.map((member, index) => (
           <li key={member.name} data-reveal data-reveal-delay={index * 70} className={index % 2 === 1 ? 'lg:mt-10' : undefined}>
             <Picture src={images[member.image]} alt={member.name} ratio="aspect-[3/4]" radius="rounded-lg rounded-tr-[64px]" zoom />

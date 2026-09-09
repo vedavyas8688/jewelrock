@@ -43,6 +43,22 @@
   text-shadow: none;
 }
 
+@media (max-width: 640px) {
+  .ph-medallion {
+    border-width: 5px;
+  }
+
+  .ph-point .ph-rule {
+    min-height: 72px;
+  }
+
+  .ph-sign {
+    left: 2%;
+    top: 88%;
+    font-size: clamp(0.86rem, 4vw, 1.08rem);
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .ph-rule {
     transform-origin: top;

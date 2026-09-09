@@ -1,9 +1,9 @@
 import { images } from '../../data/images';
 
 const liveStationImages = [
-  { src: images.platter },
   { src: images.plates },
-  { src: images.hero },
+  { src: images.cateringMainCourse },
+  { src: images.cateringRegionalSpecialty },
 ];
 
 export function LiveCulinaryTheatre() {
@@ -24,21 +24,21 @@ export function LiveCulinaryTheatre() {
             <p className="text-eyebrow font-bold uppercase tracking-[0.28em] text-gold-light">
               Live culinary theatre
             </p>
-            <h2 className="mt-7 font-display text-[clamp(3rem,6vw,5.3rem)] font-semibold leading-[0.96] text-cream">
+            <h2 className="mt-6 font-display text-[clamp(2.7rem,13vw,5.3rem)] font-semibold leading-[0.96] text-cream sm:mt-7">
               Crafted Live.
               <span className="block">Served with</span>
               <span className="block text-gold-light">Passion.</span>
             </h2>
             <span className="mt-7 block h-1 w-24 bg-gold-light" aria-hidden="true" />
-            <p className="mt-8 max-w-[34rem] text-lede leading-relaxed text-cream/82">
+            <p className="mt-6 max-w-[34rem] text-lede leading-relaxed text-cream/82 sm:mt-8">
               Our live buffet counters bring the kitchen into the room, with chefs finishing kababs, grills, breads and signature plates fresh for your guests.
             </p>
           </div>
         </div>
 
-        <div className="grid min-h-[560px] border-t-4 border-cream bg-cream lg:min-h-0 lg:grid-rows-3 lg:border-l-4 lg:border-t-0">
+        <div className="grid min-h-0 border-t-4 border-cream bg-cream sm:grid-cols-3 lg:min-h-0 lg:grid-cols-1 lg:grid-rows-3 lg:border-l-4 lg:border-t-0">
           {liveStationImages.map((item, index) => (
-            <div key={`${item.src}-${index}`} className="relative min-h-[185px] overflow-hidden border-b-4 border-cream bg-forest-deep last:border-b-0 lg:min-h-0">
+            <div key={`${item.src}-${index}`} className="relative min-h-[150px] overflow-hidden border-b-4 border-cream bg-forest-deep last:border-b-0 sm:border-b-0 sm:border-r-4 sm:last:border-r-0 lg:min-h-0 lg:border-b-4 lg:border-r-0 lg:last:border-b-0">
               <img
                 src={item.src}
                 alt=""
