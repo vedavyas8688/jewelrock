@@ -1,0 +1,100 @@
+/* ==========================================================================
+   JewelRock design tokens
+   Every color, typeface, radius, shadow, easing and type-scale step used on
+   the site is declared here and consumed via Tailwind utilities
+   (bg-forest, text-ink, rounded-pill, shadow-lift, font-display, text-display-lg …)
+   or via var(--color-forest) inside component CSS. Nothing else defines colors.
+   ========================================================================== */
+
+@theme {
+  /* ---- Reset Tailwind's palette so only brand tokens exist ---- */
+  --color-*: initial;
+
+  /* ---- Brand color ---- */
+  --color-forest: #173f37;         /* primary — headings on light, solid surfaces */
+  --color-forest-deep: #0f2b26;    /* dark surfaces, footer, menu bar panel */
+  --color-forest-soft: #1f4f45;    /* hover on forest, gradient partner */
+  --color-gold: #b9873f;           /* accent — prices, rules, active states */
+  --color-gold-light: #d8b072;     /* accent on dark surfaces */
+
+  /* ---- Neutrals ---- */
+  --color-cream: #f6f0e6;          /* page background */
+  --color-cream-deep: #ebe2d2;     /* alternate section band */
+  --color-paper: #fffcf7;          /* cards / raised surfaces */
+  --color-white: #ffffff;
+  --color-ink: #1b1a17;            /* body text */
+  --color-muted: #625c53;          /* secondary text */
+  --color-line: #d9cdb8;           /* borders on light */
+  --color-line-dark: #2c5a50;      /* borders on dark */
+
+  /* ---- Semantic ---- */
+  --color-veg: #2f8f46;
+  --color-nonveg: #b4362d;
+  --color-egg: #c78a1c;
+  --color-error: #b4362d;
+  --color-success: #2f8f46;
+
+  /* ---- Typography ---- */
+  --font-display: 'Jost', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-body: 'Jost', ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  /* Type scale (responsive). Utilities: text-display-xl … text-caption */
+  --text-display-xl: clamp(2.75rem, 1.6rem + 4.2vw, 5.5rem);
+  --text-display-xl--line-height: 1.02;
+  --text-display-xl--letter-spacing: 0;
+
+  --text-display-lg: clamp(2.25rem, 1.4rem + 3vw, 4rem);
+  --text-display-lg--line-height: 1.06;
+  --text-display-lg--letter-spacing: 0;
+
+  --text-display-md: clamp(1.75rem, 1.2rem + 1.9vw, 2.75rem);
+  --text-display-md--line-height: 1.12;
+  --text-display-md--letter-spacing: 0;
+
+  --text-display-sm: clamp(1.35rem, 1.1rem + 0.9vw, 1.85rem);
+  --text-display-sm--line-height: 1.2;
+
+  --text-lede: clamp(1.05rem, 0.98rem + 0.3vw, 1.25rem);
+  --text-lede--line-height: 1.6;
+
+  --text-body: 1rem;
+  --text-body--line-height: 1.65;
+
+  --text-small: 0.9rem;
+  --text-small--line-height: 1.55;
+
+  --text-caption: 0.78rem;
+  --text-caption--line-height: 1.4;
+
+  --text-eyebrow: 0.75rem;
+  --text-eyebrow--line-height: 1;
+  --text-eyebrow--letter-spacing: 0.16em;
+
+  /* ---- Radius ---- */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 32px;
+  --radius-pill: 999px;
+
+  /* ---- Elevation ---- */
+  --shadow-soft: 0 1px 2px rgba(23, 63, 55, 0.06), 0 8px 24px -12px rgba(23, 63, 55, 0.18);
+  --shadow-lift: 0 2px 4px rgba(23, 63, 55, 0.06), 0 24px 48px -20px rgba(23, 63, 55, 0.28);
+  --shadow-inset-line: inset 0 0 0 1px var(--color-line);
+
+  /* ---- Motion ---- */
+  --ease-out-soft: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-in-out-soft: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 160ms;
+  --duration-base: 260ms;
+  --duration-slow: 700ms;
+
+  /* ---- Layout ---- */
+  --container-site: 1320px;
+  --container-prose: 68ch;
+  --spacing-gutter: clamp(1.25rem, 4vw, 4rem);
+  --spacing-section: clamp(4rem, 6vw, 7.5rem);
+  --spacing-section-tight: clamp(3rem, 4.5vw, 5rem);
+  --spacing-header: 84px;
+}
