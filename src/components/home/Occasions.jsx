@@ -20,7 +20,10 @@ export function Occasions() {
   useEffect(() => {
     const measure = () => {
       const tab = tabRefs.current[active];
-      if (tab) setIndicator({ left: tab.offsetLeft, width: tab.offsetWidth });
+      if (tab) {
+        setIndicator({ left: tab.offsetLeft, width: tab.offsetWidth });
+        tab.scrollIntoView({ block: 'nearest', inline: 'center' });
+      }
     };
     measure();
     window.addEventListener('resize', measure);
@@ -42,8 +45,8 @@ export function Occasions() {
       <SectionHeading eyebrow={occasions.eyebrow} title={occasions.title} text={occasions.text} align="center" />
 
       {/* Tabs */}
-      <div className="mt-10 flex justify-center" data-reveal>
-        <div role="tablist" aria-label="Occasions" onKeyDown={onKeyDown} className="relative inline-flex max-w-full gap-1 overflow-x-auto rounded-pill border border-line bg-paper p-1 hide-scrollbar">
+      <div className="mt-8 flex justify-center sm:mt-10" data-reveal>
+        <div role="tablist" aria-label="Occasions" onKeyDown={onKeyDown} className="relative inline-flex w-full max-w-full gap-1 overflow-x-auto rounded-pill border border-line bg-paper p-1 hide-scrollbar sm:w-auto">
           <span
             aria-hidden="true"
             className="absolute top-1 bottom-1 rounded-pill bg-forest transition-[left,width] duration-300 ease-out-soft"
@@ -64,7 +67,7 @@ export function Occasions() {
                 tabIndex={selected ? 0 : -1}
                 onClick={() => setActive(index)}
                 className={cx(
-                  'relative z-10 inline-flex items-center gap-2 whitespace-nowrap rounded-pill px-4 py-2.5 text-small font-medium transition-colors duration-300',
+                  'relative z-10 inline-flex items-center gap-2 whitespace-nowrap rounded-pill px-3.5 py-2.5 text-small font-medium transition-colors duration-300 sm:px-4',
                   selected ? 'text-cream' : 'text-muted hover:text-forest',
                 )}
               >
@@ -77,8 +80,8 @@ export function Occasions() {
       </div>
 
       {/* Panel */}
-      <div className="mt-12 grid items-center gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16" data-reveal data-reveal-delay="100">
-        <div className="relative aspect-[5/4] overflow-hidden rounded-[var(--radius-xl)] rounded-bl-[140px] bg-cream-deep shadow-lift">
+      <div className="mt-9 grid items-center gap-8 sm:mt-12 lg:grid-cols-[1fr_1fr] lg:gap-16" data-reveal data-reveal-delay="100">
+        <div className="relative aspect-[4/3] overflow-hidden rounded-[var(--radius-xl)] rounded-bl-[72px] bg-cream-deep shadow-lift sm:aspect-[5/4] sm:rounded-bl-[140px]">
           {occasions.items.map((item, index) => (
             <img
               key={item.id}
@@ -88,7 +91,7 @@ export function Occasions() {
               className={cx('absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ease-out-soft', index === active ? 'kenburns opacity-100' : 'opacity-0')}
             />
           ))}
-          <span className="absolute left-6 top-6 rounded-pill bg-cream/90 px-4 py-2 text-caption font-medium text-forest backdrop-blur">
+          <span className="absolute left-4 top-4 rounded-pill bg-cream/90 px-4 py-2 text-caption font-medium text-forest backdrop-blur sm:left-6 sm:top-6">
             {current.label}
           </span>
         </div>
@@ -96,7 +99,7 @@ export function Occasions() {
         <div key={current.id} id={`occasion-panel-${current.id}`} role="tabpanel" aria-labelledby={`occasion-tab-${current.id}`} className="tab-swap">
           <h3 className="text-display-md">{current.title}</h3>
           <p className="mt-5 max-w-prose text-body text-muted">{current.text}</p>
-          <p className="mt-8 text-caption font-medium uppercase tracking-[0.16em] text-gold">The table usually orders</p>
+          <p className="mt-7 text-caption font-medium uppercase tracking-[0.16em] text-gold sm:mt-8">The table usually orders</p>
           <ul className="mt-3 flex flex-wrap gap-2">
             {current.picks.map((pick, index) => (
               <li key={pick} className="tab-swap-item rounded-pill border border-line bg-paper px-4 py-2 text-small text-forest" style={{ '--i': index }}>

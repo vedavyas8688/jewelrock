@@ -9,6 +9,10 @@ export function usePathPage(pages, defaultPage = 'home') {
   const [page, setPage] = useState(() => resolvePage(pages, defaultPage));
 
   useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+
     const onNavigate = () => {
       setPage(resolvePage(pages, defaultPage));
       if (window.location.hash) {
@@ -40,7 +44,11 @@ export function usePathPage(pages, defaultPage = 'home') {
 
     window.addEventListener('popstate', onNavigate);
     document.addEventListener('click', onClick);
-    if (window.location.hash) window.setTimeout(() => scrollToHash(window.location.hash), 120);
+    if (window.location.hash) {
+      window.setTimeout(() => scrollToHash(window.location.hash), 120);
+    } else {
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    }
 
     return () => {
       window.removeEventListener('popstate', onNavigate);

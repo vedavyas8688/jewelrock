@@ -1,5 +1,5 @@
 import { useId, useState } from 'react';
-import { Plus } from 'lucide-react';
+import { Minus, Plus } from 'lucide-react';
 import { cx } from '../../lib/cx';
 
 /**
@@ -25,17 +25,17 @@ export function Accordion({ items, defaultOpen = 0, className }) {
                 aria-expanded={isOpen}
                 aria-controls={panelId}
                 onClick={() => setOpen(isOpen ? -1 : index)}
-                className="flex w-full items-center justify-between gap-6 py-5 text-left text-display-sm font-display text-forest hover:text-forest-soft"
+                className="flex w-full items-center justify-between gap-4 py-4 text-left font-display text-[clamp(1.35rem,6.3vw,1.85rem)] leading-tight text-forest hover:text-forest-soft sm:gap-6 sm:py-5 sm:text-display-sm"
               >
-                <span>{item.q}</span>
+                <span className="min-w-0">{item.q}</span>
                 <span
                   aria-hidden="true"
                   className={cx(
-                    'grid size-9 shrink-0 place-items-center rounded-pill border border-line text-forest transition-[transform,background-color,color] duration-200 ease-out-soft',
-                    isOpen && 'rotate-45 bg-forest text-cream',
+                    'grid size-9 shrink-0 place-items-center rounded-pill border border-line text-forest transition-[background-color,color,border-color] duration-200 ease-out-soft',
+                    isOpen && 'border-forest bg-forest text-cream',
                   )}
                 >
-                  <Plus size={18} />
+                  {isOpen ? <Minus size={17} /> : <Plus size={18} />}
                 </span>
               </button>
             </h3>

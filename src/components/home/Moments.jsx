@@ -20,14 +20,14 @@ export function Moments() {
           </Button>
         </div>
 
-        <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
+        <ul className="grid gap-4 min-[520px]:grid-cols-2 sm:grid-cols-3">
           {tiles.map((tile, index) => (
-            <li key={tile.alt} data-reveal data-reveal-delay={index * 60} className={index === 0 || index === 5 ? 'col-span-2 sm:col-span-1' : undefined}>
+            <li key={tile.alt} data-reveal data-reveal-delay={index * 60} className={index === 0 || index === 5 ? 'min-[520px]:col-span-2 sm:col-span-1' : undefined}>
               <a href="/gallery" className="block">
                 <Picture
                   src={tile.src}
                   alt={tile.alt}
-                  ratio={index % 3 === 1 ? 'aspect-[4/5]' : 'aspect-[4/3] sm:aspect-[4/5]'}
+                  ratio="aspect-[4/3] sm:aspect-[4/5]"
                   radius="rounded-lg"
                   zoom
                 />

@@ -12,7 +12,7 @@ export function CateringHero() {
         decoding="sync"
         fetchPriority="high"
       />
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,43,36,0.96)_0%,rgba(8,43,36,0.9)_48%,rgba(8,43,36,0.42)_100%)] sm:bg-[linear-gradient(90deg,rgba(8,43,36,0.95)_0%,rgba(8,43,36,0.86)_28%,rgba(8,43,36,0.38)_52%,rgba(8,43,36,0.08)_100%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(35,24,20,0.96)_0%,rgba(35,24,20,0.9)_48%,rgba(35,24,20,0.42)_100%)] sm:bg-[linear-gradient(90deg,rgba(35,24,20,0.95)_0%,rgba(35,24,20,0.86)_28%,rgba(35,24,20,0.38)_52%,rgba(35,24,20,0.08)_100%)]" />
 
       <div className="container-site relative z-10 flex min-h-[calc(100svh-var(--spacing-header))] items-center py-8 sm:py-10 lg:h-full lg:py-12">
         <div className="w-full max-w-[39rem]">

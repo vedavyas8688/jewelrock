@@ -16,7 +16,7 @@ export function LiveCulinaryTheatre() {
         loading="lazy"
         decoding="async"
       />
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(4,35,29,0.98)_0%,rgba(4,35,29,0.92)_34%,rgba(4,35,29,0.5)_58%,rgba(4,35,29,0.18)_100%)]" aria-hidden="true" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(35,24,20,0.98)_0%,rgba(35,24,20,0.92)_34%,rgba(35,24,20,0.5)_58%,rgba(35,24,20,0.18)_100%)]" aria-hidden="true" />
 
       <div className="relative z-10 grid min-h-[calc(100svh-var(--spacing-header))] lg:h-full lg:min-h-[660px] lg:grid-cols-[1fr_27vw]">
         <div className="flex items-center px-[var(--spacing-gutter)] py-14 sm:py-16 lg:py-20">

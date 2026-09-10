@@ -23,16 +23,6 @@ export function Hero() {
               {hero.secondaryCta.label}
             </Button>
           </div>
-
-          <dl className="mt-12 grid max-w-lg grid-cols-3 gap-6 border-t border-line pt-6">
-            {hero.facts.map((fact) => (
-              <div key={fact.label}>
-                <dt className="sr-only">{fact.label}</dt>
-                <dd className="font-display text-display-sm text-forest">{fact.value}</dd>
-                <dd className="mt-1 text-caption text-muted">{fact.label}</dd>
-              </div>
-            ))}
-          </dl>
         </div>
 
         {/* Photo: curved on the inside edge, bleeds to the right on desktop */}

@@ -21,7 +21,7 @@ const toneStyles = {
     icon: 'border border-gold bg-forest text-gold',
   },
   light: {
-    card: 'bg-[#EFE7D8]',
+    card: 'bg-cream',
     number: 'text-forest/55',
     title: 'text-forest',
     text: 'text-forest/65',
@@ -36,7 +36,7 @@ function CollectionCard({ item, index }) {
 
   return (
     <article
-      className={`relative flex h-[24rem] flex-col overflow-hidden rounded-full shadow-[0_26px_70px_-48px_rgba(23,63,55,0.55)] ring-1 ring-gold/20 min-[480px]:h-[27rem] lg:h-[min(30rem,68vh)] ${s.card} ${
+      className={`relative flex h-[24rem] flex-col overflow-hidden rounded-full shadow-[0_26px_70px_-48px_rgba(35,24,20,0.55)] ring-1 ring-gold/20 min-[480px]:h-[27rem] lg:h-[min(30rem,68vh)] ${s.card} ${
         index % 2 === 0 ? 'lg:-translate-y-6' : 'lg:translate-y-6'
       }`}
     >

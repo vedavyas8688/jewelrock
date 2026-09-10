@@ -10,7 +10,7 @@ export function PageHero({ eyebrow, title, text, image, imageAlt, children, tone
   const hasImage = Boolean(image);
 
   return (
-    <section className={cx(tone === 'cream' ? 'bg-cream' : 'bg-cream-deep', 'pt-12 pb-section-tight md:pt-16')}>
+    <section className={cx(tone === 'cream' ? 'bg-cream' : 'bg-cream-deep', 'pt-8 pb-section-tight sm:pt-12 md:pt-16')}>
       <div
         className={cx(
           'container-site hero-in',

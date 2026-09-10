@@ -272,7 +272,7 @@
 }
 
 .timeline-list::before {
-  background: rgba(216, 176, 114, 0.22);
+  background: rgba(200, 160, 77, 0.22);
 }
 
 .timeline-list::after {
@@ -305,8 +305,8 @@
     radial-gradient(circle, var(--color-gold-light) 0 32%, var(--color-forest) 35% 100%);
   box-shadow:
     0 0 0 7px var(--color-forest),
-    0 0 0 8px rgba(216, 176, 114, 0.22),
-    0 8px 18px rgba(15, 43, 38, 0.28);
+    0 0 0 8px rgba(200, 160, 77, 0.22),
+    0 8px 18px rgba(35, 24, 20, 0.28);
   transform: scale(0.7);
   opacity: 0;
   transition:
@@ -387,7 +387,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  filter: drop-shadow(0 7px 12px rgba(23, 63, 55, 0.12));
+  filter: drop-shadow(0 7px 12px rgba(35, 24, 20, 0.12));
 }
 
 .eyebrow-brush::after {
@@ -650,7 +650,7 @@
 }
 
 .tilt-glare {
-  background: radial-gradient(circle at var(--glare-x, 50%) var(--glare-y, 50%), rgba(255, 255, 255, 0.18), transparent 55%);
+  background: radial-gradient(circle at var(--glare-x, 50%) var(--glare-y, 50%), rgba(242, 239, 230, 0.18), transparent 55%);
   opacity: 0;
   transition: opacity 300ms var(--ease-out-soft);
 }
