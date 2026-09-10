@@ -7,7 +7,11 @@ export function CategoryNav({ categories, activeId, onSelect }) {
 
   useEffect(() => {
     const active = listRef.current?.querySelector('[aria-current="true"]');
-    active?.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
+    if (!active || !listRef.current) return;
+    listRef.current.scrollTo({
+      left: active.offsetLeft - (listRef.current.clientWidth - active.clientWidth) / 2,
+      behavior: 'smooth',
+    });
   }, [activeId]);
 
   return (

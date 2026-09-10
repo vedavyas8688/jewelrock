@@ -54,8 +54,8 @@ export const home = {
     title: 'A Mysore favourite since 1990',
     text: 'JewelRock opened its doors on August 15, 1990 as a multi-cuisine restaurant created for Mysoreans who wanted generous food, warm service and a table that could please everyone.',
     cta: { label: 'Our story', href: '/about' },
-    image: 'farm',
-    imageAlt: 'Fresh produce arriving at the JewelRock kitchen',
+    image: 'occasion',
+    imageAlt: 'A JewelRock restaurant table set for guests',
     points: [
       { title: 'Cooked to order', text: 'Nothing sits under a lamp. Gravies are finished when you order them.' },
       { title: 'Everyone eats', text: 'Veg, non-veg and egg dishes clearly marked, with a full vegetarian run of every section.' },

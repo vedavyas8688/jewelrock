@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { home } from '../../data/content';
 import { images } from '../../data/images';
 import { formatPrice } from '../../lib/format';
@@ -14,6 +14,52 @@ import { cx } from '../../lib/cx';
 export function BarSpotlight() {
   const { bar } = home;
   const [active, setActive] = useState(0);
+  const panelRefs = useRef([]);
+
+  useEffect(() => {
+    const media = window.matchMedia('(max-width: 1023px)');
+    let frame = 0;
+
+    const syncActivePanel = () => {
+      frame = 0;
+      if (!media.matches) return;
+
+      const panels = panelRefs.current.filter(Boolean);
+      const viewportCenter = window.innerHeight / 2;
+      const closest = panels
+        .map((panel) => {
+          const rect = panel.getBoundingClientRect();
+          return {
+            index: Number(panel.dataset.index),
+            distance: Math.abs(rect.top + rect.height / 2 - viewportCenter),
+            visible: rect.bottom > 0 && rect.top < window.innerHeight,
+          };
+        })
+        .filter((panel) => panel.visible)
+        .sort((a, b) => a.distance - b.distance)[0];
+
+      if (closest) {
+        setActive(closest.index);
+      }
+    };
+
+    const scheduleSync = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(syncActivePanel);
+    };
+
+    syncActivePanel();
+    window.addEventListener('scroll', scheduleSync, { passive: true });
+    window.addEventListener('resize', scheduleSync);
+    media.addEventListener('change', scheduleSync);
+
+    return () => {
+      if (frame) window.cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', scheduleSync);
+      window.removeEventListener('resize', scheduleSync);
+      media.removeEventListener('change', scheduleSync);
+    };
+  }, []);
 
   return (
     <Section tone="night" id="bar-spotlight">
@@ -36,6 +82,10 @@ export function BarSpotlight() {
           return (
             <li
               key={item.name}
+              ref={(node) => {
+                panelRefs.current[index] = node;
+              }}
+              data-index={index}
               className={cx('expand-panel relative overflow-hidden rounded-xl', open && 'is-open')}
               onMouseEnter={() => setActive(index)}
               onFocus={() => setActive(index)}

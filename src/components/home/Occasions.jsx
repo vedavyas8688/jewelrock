@@ -22,7 +22,11 @@ export function Occasions() {
       const tab = tabRefs.current[active];
       if (tab) {
         setIndicator({ left: tab.offsetLeft, width: tab.offsetWidth });
-        tab.scrollIntoView({ block: 'nearest', inline: 'center' });
+        const list = tab.parentElement;
+        list?.scrollTo({
+          left: tab.offsetLeft - (list.clientWidth - tab.offsetWidth) / 2,
+          behavior: 'smooth',
+        });
       }
     };
     measure();

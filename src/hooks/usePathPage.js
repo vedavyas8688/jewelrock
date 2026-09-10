@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 
 /**
  * Tiny history-API router. Returns the current page slug.
@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 export function usePathPage(pages, defaultPage = 'home') {
   const [page, setPage] = useState(() => resolvePage(pages, defaultPage));
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if ('scrollRestoration' in window.history) {
       window.history.scrollRestoration = 'manual';
     }

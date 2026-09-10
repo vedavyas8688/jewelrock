@@ -14,6 +14,7 @@ import { FaqPage } from './pages/FaqPage';
 import { ContactPage } from './pages/ContactPage';
 import { usePathPage } from './hooks/usePathPage';
 import { useScrollReveal } from './hooks/useScrollReveal';
+import { defaultMeta, pageMeta } from './data/meta';
 
 const pages = {
   home: HomePage,
@@ -28,25 +29,14 @@ const pages = {
   contact: ContactPage,
 };
 
-const titles = {
-  home: 'Multi-cuisine dining & bar in Mysuru',
-  about: 'Our story',
-  menu: 'Menu',
-  catering: 'Catering',
-  gallery: 'Gallery',
-  reservations: 'Reservations',
-  blogs: 'Journal',
-  'blog-details': 'Journal',
-  faq: 'FAQ',
-  contact: 'Contact',
-};
-
 export default function App() {
   const page = usePathPage(site.nav);
   useScrollReveal(page);
 
   useEffect(() => {
-    document.title = `${site.name} | ${titles[page] || titles.home}`;
+    const meta = pageMeta[page] || defaultMeta;
+    document.title = `${site.name} | ${meta.title}`;
+    setMetaContent('description', meta.description);
   }, [page]);
 
   const Page = pages[page] || HomePage;
@@ -66,4 +56,14 @@ export default function App() {
       <Footer />
     </>
   );
+}
+
+function setMetaContent(name, content) {
+  let tag = document.querySelector(`meta[name="${name}"]`);
+  if (!tag) {
+    tag = document.createElement('meta');
+    tag.setAttribute('name', name);
+    document.head.appendChild(tag);
+  }
+  tag.setAttribute('content', content);
 }

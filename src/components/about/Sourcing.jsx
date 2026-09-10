@@ -12,11 +12,18 @@ export function Sourcing() {
   return (
     <Section tone="paper">
       <SectionHeading eyebrow={sourcing.eyebrow} title={sourcing.title} text={sourcing.text} align="center" />
-      <ul className="tilt-grid mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <ul className="tilt-grid mt-8 grid gap-0 sm:mt-12 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
         {sourcing.items.map((item, index) => {
           const Icon = item.icon;
           return (
-            <li key={item.title} data-reveal data-reveal-delay={index * 80} className="tilt-card group relative aspect-[3/4] overflow-hidden rounded-xl bg-forest text-cream shadow-soft" {...tilt}>
+            <li
+              key={item.title}
+              data-reveal
+              data-reveal-delay={index * 80}
+              className="tilt-card group sticky top-[calc(var(--spacing-header)+1rem)] mb-[18svh] min-h-[min(68svh,430px)] overflow-hidden rounded-xl bg-forest text-cream shadow-soft last:mb-0 sm:relative sm:top-auto sm:mb-0 sm:aspect-[3/4] sm:min-h-0"
+              style={{ zIndex: index + 1 }}
+              {...tilt}
+            >
               <img src={images[item.image]} alt="" loading="lazy" className="absolute inset-0 h-full w-full scale-105 object-cover transition-transform duration-700 ease-out-soft group-hover:scale-100" />
               <div className="absolute inset-0 bg-gradient-to-t from-forest-deep via-forest-deep/70 to-forest/25 transition-opacity duration-500 group-hover:opacity-95" />
               <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-forest-deep/55 to-transparent" />

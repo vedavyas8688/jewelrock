@@ -16,9 +16,9 @@ export function AboutPage() {
       <Manifesto />
       <Timeline />
       <Numbers />
+      <Sourcing />
       <Philosophy />
       <DayAtJewelRock />
-      <Sourcing />
       <Team />
       <ReserveBanner {...about.cta} />
     </>

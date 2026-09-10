@@ -15,13 +15,13 @@ export function Footer() {
   };
 
   return (
-    <footer className="on-dark bg-forest-deep text-cream">
+    <footer className="on-dark bg-forest text-cream">
       <div className="container-site py-section-tight">
         <div className="grid gap-12 lg:grid-cols-[1.3fr_1fr_1fr_0.7fr] lg:gap-10">
           {/* Brand + newsletter */}
           <div>
             <a href="/" className="inline-flex items-center gap-3" aria-label={`${site.name} home`}>
-              <img src={site.logo} alt="" width={56} height={44} className="h-11 w-auto object-contain brightness-0 invert" />
+              <img src={site.logo} alt="" width={64} height={52} className="h-12 w-auto object-contain" />
               <span className="font-display text-2xl">{site.name}</span>
             </a>
             <p className="mt-2 text-small text-cream/60">{site.tagline}</p>

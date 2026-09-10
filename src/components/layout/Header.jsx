@@ -34,8 +34,8 @@ export function Header({ currentPage }) {
         className={cx(
           "sticky top-0 z-50 h-header transition-[background-color,box-shadow] duration-200",
           scrolled || open
-            ? "bg-cream/95 shadow-soft backdrop-blur-md"
-            : "bg-cream",
+            ? "bg-forest/95 shadow-soft backdrop-blur-md"
+            : "bg-forest",
         )}
       >
         <div className="container-site flex h-full min-w-0 items-center justify-between gap-4">
@@ -47,11 +47,11 @@ export function Header({ currentPage }) {
             <img
               src={site.logo}
               alt=""
-              width={56}
-              height={44}
-              className="h-11 w-auto object-contain"
+              width={64}
+              height={52}
+              className="h-12 w-auto object-contain"
             />
-            <span className="hidden font-display text-xl font-medium text-forest min-[400px]:inline">
+            <span className="hidden font-display text-xl font-medium text-cream min-[400px]:inline">
               {site.name}
             </span>
           </a>
@@ -68,7 +68,7 @@ export function Header({ currentPage }) {
                   aria-current={active ? "page" : undefined}
                   className={cx(
                     "relative rounded-pill px-3.5 py-2 text-small font-medium transition-colors duration-150",
-                    active ? "text-forest" : "text-ink/75 hover:text-forest",
+                    active ? "text-gold-light" : "text-cream/80 hover:text-cream",
                     "after:absolute after:bottom-1 after:left-3.5 after:right-3.5 after:h-px after:origin-left after:scale-x-0 after:bg-gold after:transition-transform after:duration-200",
                     active && "after:scale-x-100",
                   )}
@@ -82,17 +82,17 @@ export function Header({ currentPage }) {
           <div className="flex shrink-0 items-center gap-2">
             <a
               href={telHref}
-              className="hidden items-center gap-2 text-small font-medium text-forest xl:inline-flex"
+              className="hidden items-center gap-2 text-small font-medium text-cream/85 hover:text-cream xl:inline-flex"
             >
               <Phone size={15} aria-hidden="true" />
               {site.phone}
             </a>
-            <Button href="/reservations" size="sm" className="max-md:hidden">
+            <Button href="/reservations" size="sm" light className="max-md:hidden">
               Book a table
             </Button>
             <button
               type="button"
-              className="grid size-11 place-items-center rounded-pill text-forest hover:bg-forest/8 lg:hidden"
+              className="grid size-11 place-items-center rounded-pill text-cream hover:bg-cream/10 lg:hidden"
               aria-expanded={open}
               aria-controls="mobile-menu"
               aria-label={open ? "Close menu" : "Open menu"}
@@ -108,15 +108,43 @@ export function Header({ currentPage }) {
       <div
         id="mobile-menu"
         className={cx(
-          "fixed inset-x-0 top-header bottom-0 z-40 flex flex-col bg-cream transition-[opacity,transform] duration-200 ease-out-soft lg:hidden",
+          "fixed inset-0 z-[70] flex flex-col bg-forest transition-[opacity,transform] duration-200 ease-out-soft lg:hidden",
           open
             ? "pointer-events-auto translate-y-0 opacity-100"
             : "pointer-events-none -translate-y-2 opacity-0",
         )}
         aria-hidden={!open}
       >
+        <div className="container-site flex h-header shrink-0 items-center justify-between gap-4">
+          <a
+            href="/"
+            tabIndex={open ? 0 : -1}
+            className="flex shrink-0 items-center gap-3"
+            aria-label={`${site.name} home`}
+          >
+            <img
+              src={site.logo}
+              alt=""
+              width={64}
+              height={52}
+              className="h-12 w-auto object-contain"
+            />
+            <span className="font-display text-xl font-medium text-cream">
+              {site.name}
+            </span>
+          </a>
+          <button
+            type="button"
+            tabIndex={open ? 0 : -1}
+            className="grid size-11 place-items-center rounded-pill text-cream hover:bg-cream/10"
+            aria-label="Close menu"
+            onClick={() => setOpen(false)}
+          >
+            <X size={22} aria-hidden="true" />
+          </button>
+        </div>
         <nav
-          className="container-site flex flex-1 flex-col overflow-y-auto pt-4"
+          className="container-site hide-scrollbar flex flex-1 flex-col overflow-y-auto pt-2"
           aria-label="Mobile"
         >
           {site.nav.map((item, index) => (
@@ -126,8 +154,8 @@ export function Header({ currentPage }) {
               tabIndex={open ? 0 : -1}
               aria-current={item.slug === currentPage ? "page" : undefined}
               className={cx(
-                "flex items-center justify-between border-b border-line py-4 font-display text-display-sm",
-                item.slug === currentPage ? "text-gold" : "text-forest",
+                "flex items-center justify-between border-b border-gold/30 py-4 font-display text-display-sm",
+                item.slug === currentPage ? "text-gold-light" : "text-cream",
               )}
               style={{ transitionDelay: `${index * 30}ms` }}
             >
@@ -135,13 +163,14 @@ export function Header({ currentPage }) {
             </a>
           ))}
           <div className="mt-auto flex flex-col gap-3 py-8">
-            <Button href="/reservations" size="lg" tabIndex={open ? 0 : -1}>
+            <Button href="/reservations" size="lg" light tabIndex={open ? 0 : -1}>
               Book a table
             </Button>
             <Button
               href={telHref}
               variant="secondary"
               size="lg"
+              light
               tabIndex={open ? 0 : -1}
             >
               <Phone size={16} aria-hidden="true" />
