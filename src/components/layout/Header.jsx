@@ -4,11 +4,13 @@ import { site } from "../../data/site";
 import { Button } from "../ui/Button";
 import { cx } from "../../lib/cx";
 import { useLockBody } from "../../hooks/useLockBody";
+import { GroupsPanel } from "./GroupsPanel";
 
 export function Header({ currentPage }) {
   const [open, setOpen] = useState(false);
+  const [groupsOpen, setGroupsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  useLockBody(open);
+  useLockBody(open || groupsOpen);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -20,13 +22,21 @@ export function Header({ currentPage }) {
   // Close the drawer on navigation / escape
   useEffect(() => setOpen(false), [currentPage]);
   useEffect(() => {
-    if (!open) return undefined;
-    const onKey = (event) => event.key === "Escape" && setOpen(false);
+    if (!open && !groupsOpen) return undefined;
+    const onKey = (event) => {
+      if (event.key !== "Escape") return;
+      setOpen(false);
+      setGroupsOpen(false);
+    };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [open]);
+  }, [open, groupsOpen]);
 
   const telHref = `tel:${site.phone.replace(/[^+\d]/g, "")}`;
+  const openGroupsPanel = () => {
+    setOpen(false);
+    setGroupsOpen(true);
+  };
 
   return (
     <>
@@ -79,7 +89,14 @@ export function Header({ currentPage }) {
             })}
           </nav>
 
-          <div className="flex shrink-0 items-center gap-2">
+          <div className="flex shrink-0 items-center gap-2 lg:gap-5">
+            <button
+              type="button"
+              onClick={openGroupsPanel}
+              className="hidden min-h-10 items-center rounded-pill border border-gold/45 px-4 text-small font-semibold text-gold-light transition hover:bg-gold-light hover:text-forest lg:inline-flex"
+            >
+              Our Groups
+            </button>
             <a
               href={telHref}
               className="hidden items-center gap-2 text-small font-medium text-cream/85 hover:text-cream xl:inline-flex"
@@ -90,6 +107,13 @@ export function Header({ currentPage }) {
             <Button href="/reservations" size="sm" light className="max-md:hidden">
               Book a table
             </Button>
+            <button
+              type="button"
+              onClick={openGroupsPanel}
+              className="inline-flex min-h-10 items-center rounded-pill border border-gold/45 px-3 text-[0.72rem] font-semibold text-gold-light transition hover:bg-gold-light hover:text-forest lg:hidden"
+            >
+              Our Groups
+            </button>
             <button
               type="button"
               className="grid size-11 place-items-center rounded-pill text-cream hover:bg-cream/10 lg:hidden"
@@ -104,7 +128,7 @@ export function Header({ currentPage }) {
         </div>
       </header>
 
-      {/* Mobile drawer — sibling of the header so the blurred header doesn't become its containing block */}
+      {/* Mobile drawer is a sibling of the header so blur does not affect positioning. */}
       <div
         id="mobile-menu"
         className={cx(
@@ -179,6 +203,7 @@ export function Header({ currentPage }) {
           </div>
         </nav>
       </div>
+      <GroupsPanel open={groupsOpen} onClose={() => setGroupsOpen(false)} />
     </>
   );
 }
