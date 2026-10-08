@@ -5,10 +5,10 @@ import { Picture } from '../ui/Picture';
 import { Section } from '../ui/Section';
 import { SectionHeading } from '../ui/SectionHeading';
 
-/** 3×2 editorial mosaic pulled from the gallery data (first six items). */
+/** Editorial mosaic pulled from the first five gallery items. */
 export function Moments() {
   const { moments } = home;
-  const tiles = gallery.items.slice(0, 6);
+  const tiles = gallery.items.slice(0, 5);
 
   return (
     <Section className="overflow-hidden">
@@ -26,7 +26,7 @@ export function Moments() {
               key={tile.alt}
               data-reveal
               data-reveal-delay={index * 60}
-              className={index === 0 ? 'col-span-2 sm:col-span-1 sm:row-span-2' : index === 5 ? 'col-span-2 sm:col-span-1' : undefined}
+              className={index === 0 ? 'col-span-2 sm:col-span-1 sm:row-span-2' : undefined}
             >
               <a href="/gallery" className="block">
                 <Picture

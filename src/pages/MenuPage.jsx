@@ -54,8 +54,8 @@ export function MenuPage() {
     <>
       {/* Dark hero */}
       <section className="on-dark relative overflow-hidden bg-forest-deep text-cream">
-        <img src={images.spices} alt="" className="absolute inset-0 h-full w-full object-cover opacity-30" fetchPriority="high" />
-        <div className="absolute inset-0 bg-gradient-to-r from-forest-deep via-forest-deep/85 to-forest-deep/30" />
+        <img src={images.spices} alt="" className="absolute inset-0 h-full w-full object-cover opacity-75" fetchPriority="high" />
+        <div className="absolute inset-0 bg-gradient-to-r from-forest-deep/90 via-forest-deep/45 to-transparent" />
         <div className="container-site hero-in relative py-16 md:py-24">
           <Eyebrow light className="mb-5">
             Dine in · Takeaway
