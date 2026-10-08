@@ -31,8 +31,8 @@ export function Accordion({ items, defaultOpen = 0, className }) {
                 <span
                   aria-hidden="true"
                   className={cx(
-                    'grid size-9 shrink-0 place-items-center rounded-pill border border-line text-forest transition-[background-color,color,border-color] duration-200 ease-out-soft',
-                    isOpen && 'border-forest bg-forest text-cream',
+                    'grid size-9 shrink-0 place-items-center rounded-pill border transition-[background-color,color,border-color] duration-200 ease-out-soft',
+                    isOpen ? 'border-forest bg-forest text-cream' : 'border-line text-forest',
                   )}
                 >
                   {isOpen ? <Minus size={17} /> : <Plus size={18} />}

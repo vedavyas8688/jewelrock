@@ -1,4 +1,4 @@
-import { galleryImages } from './images';
+import { galleryImages, images } from './images';
 
 /* ------------------------------------------------------------------ GALLERY
    Each entry maps to src/assets/gallery/gallery-NN.webp.
@@ -22,14 +22,19 @@ export const gallery = {
     { src: galleryImages[3], alt: 'Assorted kabab platter', category: 'food' },
     { src: galleryImages[4], alt: 'Morning produce delivery', category: 'kitchen' },
     { src: galleryImages[5], alt: 'Dessert with berries', category: 'food', span: 'wide' },
-    { src: galleryImages[6], alt: 'Soup course', category: 'food' },
+    { src: images.soup, alt: 'Freshly prepared soup course', category: 'food' },
     { src: galleryImages[7], alt: 'Kitchen prep before service', category: 'kitchen' },
     { src: galleryImages[8], alt: 'Weekend brunch plate', category: 'food', span: 'tall' },
     { src: galleryImages[9], alt: 'Fresh garden plate', category: 'food' },
     { src: galleryImages[10], alt: 'Family lunch spread', category: 'events', span: 'wide' },
     { src: galleryImages[11], alt: 'Chilled dessert bowl', category: 'drinks' },
-    { src: galleryImages[12], alt: 'Signature plates ready for the pass', category: 'food' },
-    { src: galleryImages[13], alt: 'Spice mise en place', category: 'kitchen', span: 'large' },
+    { src: images.plates, alt: 'Signature plates ready for the pass', category: 'food' },
+    { src: images.spices, alt: 'Tandoori feast with freshly ground spices', category: 'food', span: 'large' },
+    { src: images.cateringBuffetHero, alt: 'A grand buffet prepared for a celebration', category: 'events', span: 'wide' },
+    { src: images.cateringLiveTheatreBg, alt: 'Chefs cooking live for guests', category: 'kitchen', span: 'tall' },
+    { src: images.cateringMainCourse, alt: 'Indian main-course dishes served for a gathering', category: 'food' },
+    { src: images.cateringBeverages, alt: 'Refreshing beverages arranged for an event', category: 'drinks', span: 'wide' },
+    { src: images.cateringRegionalSpecialty, alt: 'Regional Indian speciality presented for service', category: 'food' },
   ],
   cta: { title: 'Hungry yet?', text: 'The menu has 250 more reasons to visit.', label: 'View the menu', href: '/menu' },
 };

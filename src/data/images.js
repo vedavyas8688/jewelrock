@@ -10,7 +10,7 @@ import dessert from '../assets/images/dessert.webp';
 import occasion from '../assets/images/occasion-table.webp';
 import contact from '../assets/images/contact-prep.webp';
 import platter from '../assets/images/menu-platter-banner.webp';
-import spices from '../assets/images/menu-hero-spices.webp';
+import spices from '../assets/images/menu-spice-feast-v2.png';
 import plates from '../assets/images/masterpiece-plates-clean.png';
 import guestWoman from '../assets/images/testimonial-woman.webp';
 import guestMan from '../assets/images/testimonial-man.webp';

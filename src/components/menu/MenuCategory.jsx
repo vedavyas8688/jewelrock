@@ -1,8 +1,13 @@
 import { MenuItemRow } from './MenuItemRow';
 
 /** One category: title, optional subtitle, items in two columns on wide screens. */
-export function MenuCategory({ category, showDiet, filterDiet }) {
-  const items = filterDiet ? category.items.filter((item) => (item.diet || category.diet) === filterDiet) : category.items;
+export function MenuCategory({ category, showDiet, filterDiet, searchQuery = '' }) {
+  const query = searchQuery.trim().toLowerCase();
+  const items = category.items.filter((item) => {
+    const matchesDiet = !filterDiet || (item.diet || category.diet) === filterDiet;
+    const matchesSearch = !query || `${item.name} ${item.note || ''}`.toLowerCase().includes(query);
+    return matchesDiet && matchesSearch;
+  });
   if (items.length === 0) return null;
 
   return (

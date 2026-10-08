@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { Search } from 'lucide-react';
 import { menu, menuIntro, menuTabs, flattenCategories, categoryCounts } from '../data/menu';
 import { images } from '../data/images';
 import { CategoryNav } from '../components/menu/CategoryNav';
@@ -18,6 +19,7 @@ export function MenuPage() {
   const initialTab = window.location.hash === '#bar' ? 'bar' : 'food';
   const [tabId, setTabId] = useState(initialTab);
   const [filterDiet, setFilterDiet] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
   const tab = menu[tabId];
   const categories = useMemo(() => flattenCategories(tab), [tab]);
   const [activeId, setActiveId] = useState(categories[0]?.id);
@@ -46,6 +48,7 @@ export function MenuPage() {
   const switchTab = (id) => {
     setTabId(id);
     setFilterDiet(null);
+    setSearchQuery('');
     window.history.replaceState({}, '', id === 'bar' ? '/menu#bar' : '/menu');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -86,10 +89,22 @@ export function MenuPage() {
       <div id={tabId} className="container-site" role="tabpanel">
         <CategoryNav categories={categories} activeId={activeId} onSelect={selectCategory} />
 
-        <div className="flex flex-col gap-4 py-8 sm:flex-row sm:items-center sm:justify-between">
+        <div className="grid gap-4 py-8 lg:grid-cols-[minmax(0,1fr)_minmax(16rem,22rem)_minmax(0,1fr)] lg:items-center">
           <p className="max-w-prose text-small text-muted">{menuIntro.note}</p>
+          <label className="relative block w-full lg:translate-x-16" htmlFor="menu-search">
+            <span className="sr-only">Search the menu</span>
+            <Search className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-muted" size={18} aria-hidden="true" />
+            <input
+              id="menu-search"
+              type="search"
+              value={searchQuery}
+              onChange={(event) => setSearchQuery(event.target.value)}
+              placeholder="Search dishes"
+              className="min-h-11 w-full rounded-pill border border-line bg-paper py-2 pl-11 pr-4 text-small text-ink outline-none transition-colors placeholder:text-muted focus:border-gold"
+            />
+          </label>
           {tabId === 'food' ? (
-            <div className="flex shrink-0 items-center gap-1 rounded-pill border border-line p-1" role="group" aria-label="Filter by diet">
+            <div className="flex shrink-0 items-center gap-1 justify-self-start rounded-pill border border-line p-1 lg:justify-self-end" role="group" aria-label="Filter by diet">
               {dietFilters.map((filter) => (
                 <button
                   key={filter.label}
@@ -111,16 +126,23 @@ export function MenuPage() {
 
         <div className="space-y-20 pb-section">
           {tab.groups.map((group) => {
-            const groupSections = group.categories
-              .map((category) => <MenuCategory key={category.id} category={category} showDiet={tabId === 'food'} filterDiet={filterDiet} />)
-              .filter((node) => node);
             return (
               <div key={group.id} className="grid gap-10 lg:grid-cols-[220px_1fr]">
                 <div className="lg:sticky lg:top-[calc(var(--spacing-header)+80px)] lg:self-start">
                   <h2 className="text-display-md text-gold">{group.title}</h2>
                   {group.measure ? <p className="mt-1 text-small text-muted">All pours {group.measure}</p> : null}
                 </div>
-                <div className="space-y-14">{groupSections}</div>
+                <div className="space-y-14">
+                  {group.categories.map((category) => (
+                    <MenuCategory
+                      key={category.id}
+                      category={category}
+                      showDiet={tabId === 'food'}
+                      filterDiet={filterDiet}
+                      searchQuery={searchQuery}
+                    />
+                  ))}
+                </div>
               </div>
             );
           })}
