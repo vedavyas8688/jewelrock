@@ -36,28 +36,30 @@ export function Footer() {
                 You’re on the list. See you at the table.
               </p>
             ) : (
-              <form onSubmit={subscribe} noValidate className="mt-5 flex max-w-md flex-col gap-2 sm:flex-row">
-                <label htmlFor="footer-email" className="sr-only">
-                  Email address
-                </label>
-                <input
-                  id="footer-email"
-                  type="email"
-                  value={email}
-                  onChange={(event) => {
-                    setEmail(event.target.value);
-                    if (state === 'error') setState('idle');
-                  }}
-                  placeholder="Your email address"
-                  aria-invalid={state === 'error' || undefined}
-                  aria-describedby={state === 'error' ? 'footer-email-error' : undefined}
-                  className="min-h-12 flex-1 rounded-pill border border-line-dark bg-forest px-5 text-body text-cream placeholder:text-cream/45 focus:border-gold-light focus:outline-none"
-                />
-                <Button type="submit" light>
-                  Subscribe
-                </Button>
+              <form onSubmit={subscribe} noValidate className="mt-5 max-w-md">
+                <div className="flex flex-col gap-2 sm:flex-row">
+                  <label htmlFor="footer-email" className="sr-only">
+                    Email address
+                  </label>
+                  <input
+                    id="footer-email"
+                    type="email"
+                    value={email}
+                    onChange={(event) => {
+                      setEmail(event.target.value);
+                      if (state === 'error') setState('idle');
+                    }}
+                    placeholder="Your email address"
+                    aria-invalid={state === 'error' || undefined}
+                    aria-describedby={state === 'error' ? 'footer-email-error' : undefined}
+                    className="min-h-12 min-w-0 flex-1 rounded-pill border border-line-dark bg-forest px-5 text-body text-cream placeholder:text-cream/45 focus:border-gold-light focus:outline-none"
+                  />
+                  <Button type="submit" light>
+                    Subscribe
+                  </Button>
+                </div>
                 {state === 'error' ? (
-                  <p id="footer-email-error" className="text-small text-gold-light sm:basis-full" role="alert">
+                  <p id="footer-email-error" className="mt-2 text-small text-gold-light" role="alert">
                     Enter a valid email address.
                   </p>
                 ) : null}

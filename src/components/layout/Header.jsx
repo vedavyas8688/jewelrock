@@ -104,7 +104,7 @@ export function Header({ currentPage }) {
               <Phone size={15} aria-hidden="true" />
               {site.phone}
             </a>
-            <Button href="/reservations" size="sm" light className="max-md:hidden">
+            <Button href="/reservations#book" size="sm" light className="max-md:hidden">
               Book a table
             </Button>
             <button
@@ -187,7 +187,7 @@ export function Header({ currentPage }) {
             </a>
           ))}
           <div className="mt-auto flex flex-col gap-3 py-8">
-            <Button href="/reservations" size="lg" light tabIndex={open ? 0 : -1}>
+            <Button href="/reservations#book" size="lg" light tabIndex={open ? 0 : -1}>
               Book a table
             </Button>
             <Button

@@ -6,7 +6,7 @@ export const home = {
     eyebrow: 'Tandoor · Wok · Coast · Bar',
     title: 'One table, many kitchens.',
     text: 'Smoky kababs from the tandoor, fiery Szechwan from the wok, coastal fish and prawns, slow North Indian gravies — and a bar to match. JewelRock is where the whole table gets what it came for.',
-    primaryCta: { label: 'Reserve a table', href: '/reservations' },
+    primaryCta: { label: 'Reserve a table', href: '/reservations#book' },
     secondaryCta: { label: 'See the menu', href: '/menu' },
     image: 'hero',
     imageAlt: 'A JewelRock table set with kababs, curries and drinks',
@@ -85,7 +85,7 @@ export const home = {
   reserve: {
     title: 'Let’s make your next meal special.',
     text: 'Birthdays, office lunches, Sunday family tables — tell us how many and we will hold the table.',
-    primaryCta: { label: 'Book a table', href: '/reservations' },
+    primaryCta: { label: 'Book a table', href: '/reservations#book' },
     secondaryCta: { label: 'Explore menu', href: '/menu' },
     image: 'occasion',
     imageAlt: 'A long table set for a celebration at JewelRock',
@@ -144,7 +144,7 @@ export const home = {
         imageAlt: 'A celebration table set with kababs and drinks',
       },
     ],
-    cta: { label: 'Reserve for your occasion', href: '/reservations' },
+    cta: { label: 'Reserve for your occasion', href: '/reservations#book' },
   },
 
   /* Expanding bar panels */
@@ -300,7 +300,7 @@ export const about = {
   cta: {
     title: 'Come see for yourself.',
     text: 'Fresh food, good company. See you at JewelRock.',
-    primaryCta: { label: 'Book a table', href: '/reservations' },
+    primaryCta: { label: 'Book a table', href: '/reservations#book' },
     secondaryCta: { label: 'Explore menu', href: '/menu' },
     image: 'avocado',
     imageAlt: 'A fresh plate ready to serve',

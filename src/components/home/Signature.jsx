@@ -37,7 +37,7 @@ export function Signature() {
             <p className="mt-4 text-small text-muted">{featured.text}</p>
             <div className="mt-auto flex flex-wrap items-center justify-between gap-4 pt-8">
               <span className="font-display text-display-sm text-gold">{formatPrice(featured.price)}</span>
-              <Button href="/reservations" size="sm" arrow>
+              <Button href="/reservations#book" size="sm" arrow>
                 Reserve
               </Button>
             </div>

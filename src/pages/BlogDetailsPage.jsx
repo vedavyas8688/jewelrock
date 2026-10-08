@@ -69,7 +69,7 @@ export function BlogDetailsPage() {
                 ))}
               </ul>
             </div>
-            <Button href="/reservations" className="mt-6 w-full" arrow>
+            <Button href="/reservations#book" className="mt-6 w-full" arrow>
               Book a table
             </Button>
           </aside>

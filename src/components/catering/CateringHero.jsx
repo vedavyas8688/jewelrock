@@ -34,7 +34,7 @@ export function CateringHero() {
           </p>
 
           <a
-            href="/reservations"
+            href="/reservations#book"
             className="mt-6 inline-flex min-h-12 items-center gap-3 rounded-pill bg-gold-light px-6 text-[0.78rem] font-bold uppercase tracking-[0.14em] text-forest shadow-lift transition hover:bg-cream sm:mt-8 sm:min-h-14 sm:px-8 sm:text-[0.9rem] sm:tracking-[0.16em]"
           >
             Reserve a table

@@ -37,7 +37,7 @@ export function ReservationsPage() {
         </div>
       </section>
 
-      <Section id="book">
+      <Section id="book" className="scroll-mt-header">
         <div className="grid gap-10 lg:grid-cols-[1.4fr_0.8fr] lg:gap-16">
           <ReservationForm />
 

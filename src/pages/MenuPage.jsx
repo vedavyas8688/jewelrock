@@ -133,7 +133,7 @@ export function MenuPage() {
             <h2 className="text-display-md">Decided?</h2>
             <p className="mt-2 text-body text-muted">Book a table and we will have the tandoor ready.</p>
           </div>
-          <Button href="/reservations" size="lg" arrow>
+          <Button href="/reservations#book" size="lg" arrow>
             Reserve a table
           </Button>
         </div>

@@ -34,7 +34,7 @@ export function HeroSection({ config, id = 'home' }) {
             <p className="mobile-copy-lock mt-4 w-full max-w-[650px] text-[0.92rem] leading-6 text-[var(--color-ink)] sm:mt-8 sm:text-[20px] sm:leading-9">
               {hero.description}
             </p>
-            <a href="/reservations" className="primary-button mt-5 min-h-[42px] px-5 text-sm sm:mt-10 sm:min-h-[44px] sm:px-6">
+            <a href="/reservations#book" className="primary-button mt-5 min-h-[42px] px-5 text-sm sm:mt-10 sm:min-h-[44px] sm:px-6">
               {hero.cta}
               <ArrowRight size={18} />
             </a>
